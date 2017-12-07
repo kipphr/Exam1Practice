@@ -2,8 +2,8 @@
 PRACTICE Test 1, problem 3.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Dutch Kipp.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -37,7 +37,7 @@ def main():
 def run_test_problem3a():
     """ Tests the   problem3a   function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # done: 2. Implement this TEST function.
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   5   ** tests (we wrote four for you).
     # ------------------------------------------------------------------
@@ -46,6 +46,11 @@ def run_test_problem3a():
     #    DIFFICULTY:      4
     #    TIME ESTIMATE:   10 to 15 minutes.
     # ------------------------------------------------------------------
+    print(' ')
+    print('----------------------------------')
+    print('testing problem 3a')
+    print('----------------------------------')
+
     # Window 1:
     title = 'Problem 3a. Test 1: Start at (30, 30), 6 lines'
     window1 = rg.RoseWindow(350, 200, title)
@@ -103,6 +108,20 @@ def run_test_problem3a():
     # your choice), add 1 more test case of your own choosing.
     # ------------------------------------------------------------------
 
+    # Window 4:
+    title = 'Problem 3a. Test 5: Start at (10, 10), 1 line'
+    window4 = rg.RoseWindow(450, 300, title)
+
+    # Test 5 (it is on window 4):
+    point = rg.Point(10, 10)
+    expected = 1
+    answer = problem3a(window4, point, 1)
+    print()
+    print('Test 5 expected:', expected)
+    print('       actual:  ', answer)
+
+    window4.close_on_mouse_click()
+
 
 def problem3a(window, point, n):
     """
@@ -112,7 +131,7 @@ def problem3a(window, point, n):
     What comes in:
       -- An rg.RoseWindow.
       -- An rg.Point.
-      -- A nonnegative integer n.
+      -- A non-negative integer n.
     What goes out:
       -- Returns the sum of the thicknesses of the rg.Lines
          that are drawn as described in the Side effects (below).
@@ -137,7 +156,7 @@ def problem3a(window, point, n):
         :type n:      int
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -145,6 +164,22 @@ def problem3a(window, point, n):
     #    DIFFICULTY:      7 or 8
     #    TIME ESTIMATE:   20 to 35 minutes.
     # ------------------------------------------------------------------
+
+    total = 0
+
+    for k in range(n):
+        start = rg.Point(point.x+20*k, point.y+10*k)
+        end = rg.Point(start.x, start.y+50)
+        line = rg.Line(start, end)
+        if k < 6:
+            line.thickness = 1 + 2*k
+        else:
+            line.thickness =13
+        total = total + line.thickness
+        line.attach_to(window)
+
+    window.render()
+    return total
 
 
 def run_test_problem3b():

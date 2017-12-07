@@ -181,10 +181,10 @@ def problem2b(rectangle, n, delta, window):
       Must render but   ** NOT close **   the window.
 
     Type hints:
-      :type rect:   rg.Rectangle
+      :type rectangle:   rg.Rectangle
       :type n:      int
       :type delta:  int
-      :type win:    rg.RoseWindow
+      :type window:    rg.RoseWindow
     """
     # ------------------------------------------------------------------
     # done: 3. Implement and test this function.
