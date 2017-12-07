@@ -157,7 +157,7 @@ def run_test_problem2b():
     window.close_on_mouse_click()
 
 
-def problem2b(rect, n, delta, win):
+def problem2b(rectangle, n, delta, window):
     """
     See   problem2b_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -187,7 +187,7 @@ def problem2b(rect, n, delta, win):
       :type win:    rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -195,6 +195,19 @@ def problem2b(rect, n, delta, win):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 25 minutes.
     # ------------------------------------------------------------------
+
+    topright = rectangle.get_upper_right_corner()
+    bottomleft = rectangle.get_lower_left_corner()
+
+    rectangle.attach_to(window)
+
+    for k in range(1, n):
+        topright = rg.Point(topright.x + delta, topright.y - delta)
+        bottomleft = rg.Point(bottomleft.x - delta, bottomleft.y + delta)
+        rectangle = rg.Rectangle(topright, bottomleft)
+        rectangle.attach_to(window)
+
+    window.render()
 
 
 # ----------------------------------------------------------------------
