@@ -27,6 +27,7 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 
 import math
 
+
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_problem1a()
@@ -168,9 +169,10 @@ def problem1a(m, n):
     #    TIME ESTIMATE:   10 minutes.
     # ------------------------------------------------------------------
 
+    low = (abs(m)) ** 2
+    high = (abs(n)) ** 2
+
     total = 0
-    low = (abs(m))**2
-    high = (abs(n))**2
     for k in range(low, high+1):
         total = total + math.sin(k)
 
@@ -180,7 +182,7 @@ def problem1a(m, n):
 def run_test_problem1b():
     """ Tests the   problem1b   function. """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # done: 4. Implement this TEST function.
     #   It TESTS the  problem1b  function defined below.
     #   Include at least **   4   ** tests.
     # ------------------------------------------------------------------
@@ -193,6 +195,35 @@ def run_test_problem1b():
     print('--------------------------------------------------')
     print('Testing the   problem1b   function:')
     print('--------------------------------------------------')
+    print(' ')
+
+    # test 1
+    expected = 1
+    actual = problem1b(2, 1)
+    print('test 1 expected:', expected)
+    print('       actual:  ', actual)
+    print(' ')
+
+    # test 2
+    expected = 3
+    actual = problem1b(2, 3)
+    print('test 2 expected:', expected)
+    print('       actual:  ', actual)
+    print(' ')
+
+    # test 3
+    expected = 2
+    actual = problem1b(4, 2)
+    print('test 3 expected:', expected)
+    print('       actual:  ', actual)
+    print(' ')
+
+    # test 4
+    expected = 6
+    actual = problem1b(10, 3)
+    print('test 4 expected:', expected)
+    print('       actual:  ', actual)
+    print(' ')
 
 
 def problem1b(m, f):
@@ -212,7 +243,7 @@ def problem1b(m, f):
            since there are 44 primes between 5 and 200.
      """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # done: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     ####################################################################
@@ -225,6 +256,13 @@ def problem1b(m, f):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 to 15 minutes.
     # ------------------------------------------------------------------
+
+    count = 0
+    for k in range(m, (m*f)+1):
+        if is_prime(k) is True:
+            count = count + 1
+
+    return count
 
 
 def run_test_problem1c():
@@ -309,7 +347,7 @@ def problem1c(n):
            and the sum of the digits in 223092870 is 33.
     """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # done: 6. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -323,6 +361,12 @@ def problem1c(n):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 20 minutes.
     # ------------------------------------------------------------------
+
+    total = 1
+    for k in range(1, n+1):
+        if is_prime(k) is True:
+            total = total*k
+    return sum_of_digits(total)
 
 
 # ----------------------------------------------------------------------
